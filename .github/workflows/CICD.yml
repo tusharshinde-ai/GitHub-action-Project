@@ -2,10 +2,21 @@ name: CICD
 
 on: 
  workflow_dispatch: 
+  inputs:
+    environment:
+      description: This is the evnironment value where this workflow runs
+      default: 'dev'
+      required: true
+      type: choice
+      options:
+        - dev
+        - prod
+        - staging
 
 jobs:
 
   code:
+   if: inputs.environment == 'dev'
    runs-on: ubuntu-latest
    steps:
      - name: checkout code
