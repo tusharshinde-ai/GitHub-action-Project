@@ -16,7 +16,7 @@ on:
 jobs:
 
   code:
-   if: inputs.environment == 'dev'
+   if: inputs.environment == 'prod'
    runs-on: ubuntu-latest
    steps:
      - name: checkout code
